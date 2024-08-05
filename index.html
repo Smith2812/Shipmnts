@@ -3,56 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Table</title>
+    <title>Employee Data</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Employee Data</h1>
+    <div class="container mt-4">
+        <h1 class="mb-4 text-center">Employee Data</h1>
         
-        <input type="text" id="searchInput" placeholder="Search..." oninput="filterAndRender()">
+        <div class="form-group">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search..." oninput="filterAndRender()">
+        </div>
 
-        <div id="filters">
+        <div id="filters" class="mb-4">
             <h3>Filters</h3>
-            <div>
-                <label for="ageFilter">Age:</label>
-                <input type="number" id="ageFilterEquals" placeholder="Equals">
-                <input type="number" id="ageFilterLessThan" placeholder="Less than">
-                <input type="number" id="ageFilterGreaterThan" placeholder="Greater than">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="ageFilter">Age:</label>
+                    <input type="number" id="ageFilterEquals" class="form-control mb-2" placeholder="Equals">
+                    <input type="number" id="ageFilterLessThan" class="form-control mb-2" placeholder="Less than">
+                    <input type="number" id="ageFilterGreaterThan" class="form-control" placeholder="Greater than">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="salaryFilter">Salary:</label>
+                    <input type="number" id="salaryFilterEquals" class="form-control mb-2" placeholder="Equals">
+                    <input type="number" id="salaryFilterLessThan" class="form-control mb-2" placeholder="Less than">
+                    <input type="number" id="salaryFilterGreaterThan" class="form-control" placeholder="Greater than">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="projectsFilter">Projects Completed:</label>
+                    <input type="number" id="projectsFilterEquals" class="form-control mb-2" placeholder="Equals">
+                    <input type="number" id="projectsFilterLessThan" class="form-control mb-2" placeholder="Less than">
+                    <input type="number" id="projectsFilterGreaterThan" class="form-control" placeholder="Greater than">
+                </div>
             </div>
-            <div>
-                <label for="salaryFilter">Salary:</label>
-                <input type="number" id="salaryFilterEquals" placeholder="Equals">
-                <input type="number" id="salaryFilterLessThan" placeholder="Less than">
-                <input type="number" id="salaryFilterGreaterThan" placeholder="Greater than">
+            <div class="form-row mb-4">
+                <div class="form-group col-md-6">
+                    <label for="hireDateFilter">Hire Date:</label>
+                    <input type="date" id="hireDateFrom" class="form-control mb-2">
+                    <input type="date" id="hireDateTo" class="form-control">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="lastLoginFilter">Last Login:</label>
+                    <input type="date" id="lastLoginFrom" class="form-control mb-2">
+                    <input type="date" id="lastLoginTo" class="form-control">
+                </div>
             </div>
-            <div>
-                <label for="projectsFilter">Projects Completed:</label>
-                <input type="number" id="projectsFilterEquals" placeholder="Equals">
-                <input type="number" id="projectsFilterLessThan" placeholder="Less than">
-                <input type="number" id="projectsFilterGreaterThan" placeholder="Greater than">
-            </div>
-            <div>
-                <label for="hireDateFilter">Hire Date:</label>
-                <input type="date" id="hireDateFrom">
-                <input type="date" id="hireDateTo">
-            </div>
-            <div>
-                <label for="lastLoginFilter">Last Login:</label>
-                <input type="date" id="lastLoginFrom">
-                <input type="date" id="lastLoginTo">
-            </div>
-            <div>
+            <div class="form-group">
                 <label for="isActiveFilter">Active:</label>
-                <select id="isActiveFilter">
+                <select id="isActiveFilter" class="form-control">
                     <option value="">Any</option>
                     <option value="true">Yes</option>
                     <option value="false">No</option>
                 </select>
             </div>
+            <div class="row">
+            <div class="form-group col-md-4">
+                <label for="roleFilter">Role:</label>
+                <input type="text" id="roleFilterEquals" class="form-control mb-2" placeholder="Equals">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="departmentFilter">Department:</label>
+                <input type="text" id="departmentFilterEquals" class="form-control mb-2" placeholder="Equals">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="accessLevelFilter">Access Level:</label>
+                <input type="text" id="accessLevelFilterEquals" class="form-control mb-2" placeholder="Equals">
+            </div>
+            </div>
+            
         </div>
 
-        <table>
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th id="id" onclick="sortTable('id')">ID</th>
@@ -69,10 +92,15 @@
                 </tr>
             </thead>
             <tbody id="dataTableBody">
-                <!-- Data will be populated here -->
+                <!-- Data rows will be inserted here -->
             </tbody>
         </table>
     </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
